@@ -1,0 +1,33 @@
+﻿@model List<security.Models.Reclamation>
+
+@{
+    ViewData["Title"] = "Reclamation List";
+}
+
+<h2>Reclamation List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reclamation in Model)
+        {
+            <tr>
+                <td>@reclamation.FirstName</td>
+                <td>@reclamation.LastName</td>
+                <td>@reclamation.Email</td>
+                <td>@reclamation.PhoneNumber</td>
+                <td>@reclamation.Message</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="ReclamationForm">Create New Reclamation</a>

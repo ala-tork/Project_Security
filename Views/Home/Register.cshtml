@@ -1,0 +1,43 @@
+﻿@model security.Models.User
+
+<h1>Register</h1>
+
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName" class="form-control" asp-for="FirstName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" class="form-control" asp-for="LastName" required>
+    </div>
+
+    <div class="form-group">
+        <label for="PhoneNumber">Phone Number:</label>
+        <input type="text" id="PhoneNumber" name="PhoneNumber" class="form-control" asp-for="PhoneNumber">
+    </div>
+
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" class="form-control" asp-for="Email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" class="form-control" asp-for="Password" required>
+    </div>
+
+    <div class="form-group">
+        <label for="UserRole">Role:</label>
+        <select id="UserRole" name="UserRole" class="form-control" asp-for="UserRole">
+            @foreach (security.Models.Role role in Enum.GetValues(typeof(security.Models.Role)))
+            {
+                <option value="@Enum.GetName(typeof(security.Models.Role), role)">@Enum.GetName(typeof(security.Models.Role), role)</option>
+            }
+        </select>
+
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
